@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 import Form from './Form';
 import Contacts from './Contacts';
 import Filter from './Filter';
+import { Container } from 'components/App.styled';
 
 class App extends Component {
   state = {
@@ -13,8 +15,6 @@ class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    name: '',
-    number: '',
     filter: '',
   };
 
@@ -49,7 +49,7 @@ class App extends Component {
   };
 
   deleteContact = deleteId => {
-    this.setState(({contacts}) => ({
+    this.setState(({ contacts }) => ({
       contacts: contacts.filter(c => c.id !== deleteId),
     }));
   };
@@ -61,7 +61,7 @@ class App extends Component {
     const filterContactsList = filterContacts();
 
     return (
-      <>
+      <Container>
         <h1>Phonebook</h1>
         <Form getData={getDataOnSubmit} />
         <h2>Contacts</h2>
@@ -70,9 +70,14 @@ class App extends Component {
           contactsList={filterContactsList}
           deleteContact={deleteContact}
         />
-      </>
+      </Container>
     );
   }
 }
+
+App.propTypes = {
+  getDataOnSubmit: PropTypes.func,
+  changeFilter: PropTypes.func,
+};
 
 export default App;

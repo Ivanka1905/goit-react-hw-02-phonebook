@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const ContactsList = styled.ul`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 480px;
-  gap: 1px;
+  gap: 7px;
+  padding: 20px;
 `;

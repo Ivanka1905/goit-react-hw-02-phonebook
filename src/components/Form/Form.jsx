@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
+import { FormEl, Label, Input, Button } from './Form.styled';
 
 class Form extends Component {
   state = { name: '', number: '' };
@@ -24,10 +26,10 @@ class Form extends Component {
     const { name, number} = this.state;
 
     return (
-      <form onSubmit={handleSubmit}>
-        <label>
+      <FormEl onSubmit={handleSubmit}>
+        <Label>
           Name
-          <input
+          <Input
             type="text"
             value={name}
             name="name"
@@ -36,10 +38,10 @@ class Form extends Component {
             required
             onChange={handleChange}
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           Number
-          <input
+          <Input
             type="tel"
             value={number}
             name="number"
@@ -48,11 +50,17 @@ class Form extends Component {
             required
             onChange={handleChange}
           />
-        </label>
-        <button type="submit">Add contact</button>
-      </form>
+        </Label>
+        <Button type="submit">Add contact</Button>
+      </FormEl>
     );
   }
+};
+
+Form.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
 }
 
 export default Form;
