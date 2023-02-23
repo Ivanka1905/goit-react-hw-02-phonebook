@@ -58,9 +58,10 @@ class Form extends Component {
 };
 
 Form.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  onSubmit: PropTypes.func,
+  name: PropTypes.string,
+  number: PropTypes.string,
+  handleSubmit: PropTypes.func,
+  handleChange: PropTypes.func,
 }
 
 export default Form;

@@ -76,8 +76,10 @@ class App extends Component {
 }
 
 App.propTypes = {
+  filterContacts: PropTypes.func,
   getDataOnSubmit: PropTypes.func,
   changeFilter: PropTypes.func,
+  deleteContact: PropTypes.func,
 };
 
 export default App;
